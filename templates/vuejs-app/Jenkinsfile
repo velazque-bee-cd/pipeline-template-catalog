@@ -69,9 +69,9 @@ pipeline {
         beforeAgent true
         anyOf { branch 'master'; branch 'development' }
       }
-      // options {
-      //   timeout(time: 90, unit: 'SECONDS') 
-      // }
+      options {
+         timeout(time: 90, unit: 'SECONDS') 
+      }
       steps {
         //input(message: "Should we deploy?", ok: "Deploy", submitterParameter: "APPROVER")
         blogKubeDeploy("${repository}", "${repoOwner}", "${registry}", "${deploymentDomain}") {
